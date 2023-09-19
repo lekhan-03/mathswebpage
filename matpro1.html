@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curve Fitting with Least Square Method</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        h1,h2,h3 {
+                color: #0077b6; /* Choose a color that matches your theme */
+            }
+            h1 {
+                font-size: 28px;
+                font-weight: bold;
+            }
+            
+            h2 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            a {
+                color: #0096c7; /* Link color */
+            }
+            a:hover {
+                color: #005b87; /* Darker color on hover */
+            }
+        }
+        h1, h2, h3 {
+            color: #0077b6; /* Choose a color that matches your theme */
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        a {
+            color: #0096c7; /* Link color */
+        }
+        a:hover {
+            color: #005b87; /* Darker color on hover */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            width: 10%; /* Adjust the width as needed */
+            min-width: 175px; /* Define a minimum width */
+            position: center;
+            top: 20;
+            left: 0;
+            height: 30%;
+            overflow-y: auto; /* Add scrollbar if needed */
+            padding: 20px;
+            box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar nav li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .sidebar nav a:hover {
+            color: #007bff;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            animation: fadeIn 0.5s ease;
+            animation-fill-mode: both;
+            display: none;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            color: #666;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Style images in the image container */
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                content.classList.add('animated'); // Add animation class
+            } else {
+                content.style.display = 'none';
+                content.classList.remove('animated'); // Remove animation class
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Curve Fitting with Least Square Method</h1>
+    </header>
+    <div class="sidebar" align ="center"/>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="toggleContent('introduction')">Introduction</a></li>
+                <li><a href="#" onclick="toggleContent('applications')">Applications</a></li>
+                <li><a href="#" onclick="toggleContent('conclusion')">Conclusion</a></li>
+                <li><a href="#" onclick="toggleContent('doneby')">Done By</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content animated" id="introduction">
+        <h2>Introduction</h2>
+        <p>Curve fitting is a fundamental concept in mathematics and data analysis that involves finding a mathematical function or equation that best represents a set of data points. The goal of curve fitting is to identify a model that closely matches the observed data, allowing for predictions, trend analysis, and a deeper understanding of underlying relationships</p>
+        <p>In many real-world scenarios, data points rarely follow a perfect linear path, and curve fitting becomes essential to capture the underlying trends and patterns. It finds applications in various fields, including science, engineering, finance, and statistics.</p>
+        <p>The least square method is a common approach used in curve fitting, where the goal is to minimize the sum of the squared differences between the observed data points and the values predicted by the chosen curve or model. This method aims to find the best-fitting curve that minimizes the overall error.</p>
+        <p>Curve fitting plays a vital role in scientific research, enabling scientists and analysts to extrapolate data beyond the observed range, make predictions, and make informed decisions based on empirical evidence. Whether in physics, economics, biology, or any other discipline, curve fitting is a valuable tool for uncovering insights hidden within data.</p>
+    </div>
+    <div class="content animated" id="applications">
+    <h2>Applications</h2>
+    <p>Curve fitting with the least square method is widely used in various fields, including:</p>
+    <ul>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#physics">Physics</a></li>
+        <li><a href="#economics">Economics</a></li>
+        <li><a href="#biology">Biology</a></li>
+    </ul>    
+    <!-- Engineering Content -->
+    <div class="video-container" id="engineering">
+        <h3>Engineering</h3>
+        <ul>
+            <li><p>Structural Analysis: Engineers use curve fitting to model stress-strain behavior in materials, ensuring the safety and integrity of structures like bridges and buildings.</p></li>
+            <li><p>Control Systems: Curve fitting assists in designing control systems for processes in manufacturing and automation.</p></li>
+        </ul>
+        <div class="video-container" id="engineering-video1">
+            <video controls width="400" height="300">
+                <source src="D:\WhatsApp Video 2023-09-19 at 10.46.04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <!-- Physics Content -->
+    <div class="video-container" id="physics">
+        <h3>Physics</h3>
+        <ul>
+            <li><p>Particle Physics: In high-energy physics experiments, curve fitting helps identify particle interactions and decay processes from experimental data.</p></li>
+            <li><p>Astronomy: Astronomers use curve fitting to model the motion of celestial bodies and predict astronomical events like eclipses.</p></li>
+        </ul>
+        <div class="video-container" id="engineering-video2">
+            <video controls width="400" height="300">
+                <source src="D:\kedar.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <!-- Economics Content -->
+    <div class="video-container" id="economics">
+        <h3>Economics</h3>
+        <ul>
+            <li><p>Demand Forecasting: Economists use curve fitting to model demand for products or services, helping businesses optimize production and inventory management.</p></li>
+            <li><p>Market Research: Curve fitting is employed to analyze market trends and predict consumer behavior, aiding in marketing and pricing strategies.</p></li>
+        </ul>
+        <div class="video-container" id="engineering-video2">
+            <video controls width="400" height="300">
+                <source src="D:\lekhan.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <!-- Biology Content -->
+    <div class="video-container" id="biology">
+        <h3>Biology</h3>
+        <ul>
+            <li><p>Pharmacokinetics: Curve fitting is used to model the absorption, distribution, metabolism, and excretion of drugs in the human body.</p></li>
+            <li><p>Population Growth: Biologists apply curve fitting to model population growth and predict the dynamics of ecosystems.</p></li>
+        </ul>
+        <div class="video-container" id="engineering-video2">
+            <video controls width="400" height="300">
+                <source src="engineering-video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+<div class="content animated" id="conclusion">
+        <h2>Conclusion</h2>
+        <p>In conclusion, the application of curve fitting with the least square method is a versatile and powerful tool across various fields. This method allows us to extract meaningful insights from data, model complex relationships, and make predictions with a high degree of accuracy.</p>
+        <p>In engineering, it aids in optimizing designs and predicting behaviors of physical systems. In physics, it assists in understanding fundamental phenomena and deriving precise equations. In economics, it helps in forecasting trends and analyzing economic data. In biology, it aids in modeling biological processes and drawing conclusions from experimental data.</p>
+        <p>The least square method, with its ability to find the best-fitting curve by minimizing errors, is an invaluable asset for researchers, analysts, and decision-makers. Its applications continue to grow, contributing to advancements in science, technology, and various industries. As data-driven decision-making becomes increasingly essential, the significance of curve fitting with the least square method remains undeniable.</p>
+    </div>
+<div class="content animated" id="doneby">
+    <h2>Done By</h2>
+    <table class="professional-table">
+        <tr>
+            <td>
+                <h3>Kiran S</h3>
+                <p>USN: 1AY21CS079</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Lekhan</h3>
+                <p>USN: 1AY21CS088</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Kedaralingayya</h3>
+                <p>USN: 1AY21CS077</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>M Gnaneshwar Reddy</h3>
+                <p>USN: 1AY21CS095</p>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
